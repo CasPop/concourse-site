@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;sha256-rB8p5IjGcF+0Snhs7mkfngewcsqcfa6n3Mu9beCPR1c=&#39; https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src &#39;none&#39;; form-action https://alvtjfccmnejrzdrltfy.supabase.co/functions/v1/pages/delete; base-uri &#39;none&#39;; frame-ancestors &#39;none&#39;">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noarchive">
+<title>Delete your Concourse account</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;700;900&display=swap">
+<style>:root{--ink:#2A1E14;--paper:#FFF6E0;--line:#E9DCC0;--shade:#F3E6C6;--sky:#BFD9E8;--tomato:#E4572E;--sign:#1F5FAE;--muted:#6B5844;--taxi:#FFD23F}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sky);color:var(--ink);font:400 17px/1.55 Nunito,system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px 16px 48px}
+.card{background:var(--paper);border:3px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:22px 20px 26px}
+.brand{font:400 15px/1 "Lilita One",Nunito,sans-serif;letter-spacing:.12em;color:var(--sign);margin:0 0 14px}
+h1,h2,h3{font-family:"Lilita One",Nunito,sans-serif;font-weight:400;line-height:1.2;margin:1.4em 0 .4em}
+h1{font-size:34px;margin-top:0}
+h2{font-size:24px;padding-top:.6em;border-top:2px solid var(--line)}
+h3{font-size:19px}
+p,ul{margin:.5em 0}
+ul{padding-left:1.25em}
+li{margin:.3em 0}
+strong{font-weight:900}
+a{color:var(--sign);font-weight:700;text-underline-offset:2px}
+nav{display:flex;gap:16px;flex-wrap:wrap;margin:18px 4px 0;font-weight:700}
+nav a{color:var(--ink)}
+.note{background:var(--shade);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;margin:16px 0}
+.error{background:#FBE1D8;border-color:var(--tomato)}
+form{margin-top:12px}
+label{display:block;font-weight:900;margin:16px 0 6px}
+.hint{font-size:15px;color:var(--muted);margin:2px 0 6px}
+input[type=text],input[type=email],select{width:100%;font:inherit;color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:10px;padding:10px 12px;min-height:48px}
+input:focus,select:focus{outline:3px solid var(--sign);outline-offset:1px}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+button{margin-top:22px;width:100%;min-height:56px;font:400 21px/1 "Lilita One",Nunito,sans-serif;color:#fff;background:var(--tomato);border:3px solid var(--ink);border-radius:14px;box-shadow:0 5px 0 var(--ink);cursor:pointer}
+button:active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink)}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding-left:40px;margin:10px 0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:28px;height:28px;border:2px solid var(--ink);border-radius:50%;background:var(--taxi);text-align:center;font:400 16px/25px "Lilita One",sans-serif}
+footer{margin:22px 4px 0;font-size:14px;color:var(--muted)}</style>
+</head>
+<body>
+<main>
+<div class="card">
+<p class="brand">CONCOURSE</p>
+<h1>Delete your Concourse account</h1>
+<h2 id="in-the-game">In the game (fastest)</h2>
+<ol class="steps">
+<li>Open Concourse and go to the <strong>Airline</strong> tab.</li>
+<li>In <strong>Settings</strong>, tap <strong>Delete my account</strong>.</li>
+<li>Read the warning, then hold the red button for two seconds.</li>
+</ol>
+<p>This deletes your account at once and for good: your gate, planes, Miles and everything you own, your callsign, your visits, kudos and gifts, and your play stats. It cannot be undone. The game then returns to its first screen.</p>
+<h2 id="request">Ask us to delete it</h2>
+<p>If you cannot open the game any more (you uninstalled it, or a guest account was on a phone you no longer have), send this form. We delete the account by hand within 30 days. We use what you send only to find and delete your account, and we delete the request with it.</p>
+
+<form method="post" action="https://alvtjfccmnejrzdrltfy.supabase.co/functions/v1/pages/delete">
+<label for="callsign">Your callsign</label>
+<p class="hint">The name other players see on your gate, like SKYLINE BLUE.</p>
+<input type="text" id="callsign" name="callsign" required minlength="2" maxlength="32" autocomplete="off" autocapitalize="characters" value="">
+<label for="method">How you played</label>
+<select id="method" name="method" required>
+<option value="guest">As a guest (no sign-in)</option>
+<option value="apple">Sign in with Apple</option>
+<option value="email">Email and password</option>
+<option value="unsure">I am not sure</option>
+</select>
+<label for="email">Your email address (optional; needed if you signed in with email)</label>
+<p class="hint">We write back once to say it is done. For Sign in with Apple, the address Apple shared helps us find the account.</p>
+<input type="email" id="email" name="email" maxlength="254" autocomplete="email" value="">
+<div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<button type="submit">Send deletion request</button>
+</form>
+<p>Questions: <a href="mailto:stephenstidham@yahoo.com">stephenstidham@yahoo.com</a>.</p>
+</div>
+<nav><a href="https://caspop.github.io/concourse-site/privacy">Privacy policy</a><a href="https://caspop.github.io/concourse-site/delete">Delete your account</a></nav>
+<footer>Concourse is a game for players aged 13 and over.</footer>
+</main>
+</body>
+</html>
