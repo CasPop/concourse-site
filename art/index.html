@@ -60,7 +60,7 @@
 <details id="edit">
 <summary>The paper, the fit, the light, the colours</summary>
 <h3>The paper</h3>
-<p class="hint">Drag the four dots onto the sheet's corners. The yellow one is the top left of your drawing. The blue dashes show what is kept when the blank paper is trimmed.</p>
+<p class="hint">Drag the four dots to frame exactly what is kept; the yellow one is the top left of your drawing. Left alone, the tool trims the blank paper for you and the blue dashes show what it keeps. Dragging a dot turns that trim off.</p>
 <canvas id="paper" class="paper"></canvas>
 <div class="row wrap">
 <button type="button" class="small" id="turn">Turn a quarter</button>
@@ -69,8 +69,8 @@
 </div>
 <h3>Fit</h3>
 <label class="opt"><input type="checkbox" id="trim" checked> Trim the blank paper round the drawing</label>
-<label class="opt"><input type="radio" name="fit" id="fit-fill" checked> Fill the piece (the sheet's edges may be cut)</label>
-<label class="opt"><input type="radio" name="fit" id="fit-whole"> The whole sheet (paper shows round it)</label>
+<label class="opt"><input type="radio" name="fit" id="fit-whole" checked> The whole drawing (paper may show round it)</label>
+<label class="opt"><input type="radio" name="fit" id="fit-fill"> Fill the piece (the drawing's edges may be cut)</label>
 <h3>Light</h3>
 <label for="whites">Whites: more paper turns clean white</label>
 <input type="range" id="whites" min="0.55" max="1" step="0.01">

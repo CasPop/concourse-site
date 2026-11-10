@@ -18,7 +18,7 @@ const state = {
   file: null,
   src: null, // ImageData of the photo at work size
   corners: null, // [[x,y] x4] in src pixels: top-left, top-right, bottom-right, bottom-left of the sheet
-  fit: "fill",
+  fit: "whole",
   whites: 0.95,
   lines: 0.04,
   lift: false,
@@ -674,6 +674,12 @@ function drawCorners() {
   });
 }
 
+// The trim (the blue dashes) on or off, the checkbox following.
+function setTrim(on) {
+  state.trim = on;
+  $("trim").checked = on;
+}
+
 function wireCorners() {
   const c = $("paper");
   let drag = -1;
@@ -684,6 +690,7 @@ function wireCorners() {
   };
   c.addEventListener("pointerdown", (e) => {
     const [x, y] = at(e);
+    moved = false;
     const b = c.getBoundingClientRect();
     const reach = (44 / b.width) * c.width / Number(c.dataset.scale);
     let best = reach;
@@ -700,16 +707,21 @@ function wireCorners() {
       e.preventDefault();
     }
   });
+  let moved = false;
   c.addEventListener("pointermove", (e) => {
     if (drag < 0) return;
     const [x, y] = at(e);
     state.corners[drag] = [Math.max(0, Math.min(state.src.width, x)), Math.max(0, Math.min(state.src.height, y))];
+    moved = true;
+    // A dot set by hand is the frame: the blue trim steps aside so what is kept is exactly the dots.
+    if (state.trim) setTrim(false);
     drawCorners();
   });
   const end = () => {
     if (drag < 0) return;
     drag = -1;
-    rework(true);
+    if (moved) rework(true);
+    moved = false;
   };
   c.addEventListener("pointerup", end);
   c.addEventListener("pointercancel", end);
@@ -732,7 +744,7 @@ function rework(geometry) {
 function pickKind(k) {
   state.kind = k;
   state.lift = !!k.cutout;
-  state.fit = "fill";
+  state.fit = "whole";
   $("kind-name").textContent = k.label;
   $("kind-hint").textContent = k.hint;
   $("kind-where").textContent = k.object
@@ -761,7 +773,7 @@ async function takePhoto(file) {
   $("frames").replaceChildren();
   state.snap = false;
   state.showBefore = false;
-  $("fit-fill").checked = true;
+  $("fit-whole").checked = true;
   state.trim = !state.kind.tile;
   $("trim").checked = state.trim;
   $("lift").checked = state.lift;
@@ -907,10 +919,11 @@ async function main() {
   $("snap").addEventListener("change", (e) => { state.snap = e.target.checked; state.showBefore = false; rework(false); });
   $("before").addEventListener("click", () => { state.showBefore = !state.showBefore; rework(false); });
   $("turn").addEventListener("click", () => { state.corners = [state.corners[3], state.corners[0], state.corners[1], state.corners[2]]; drawCorners(); rework(true); });
-  $("refind").addEventListener("click", () => { state.corners = findPaper(state.src); drawCorners(); rework(true); });
+  $("refind").addEventListener("click", () => { state.corners = findPaper(state.src); setTrim(!state.kind.tile); drawCorners(); rework(true); });
   $("whole-photo").addEventListener("click", () => {
     const w = state.src.width, h = state.src.height;
     state.corners = [[0, 0], [w, 0], [w, h], [0, h]];
+    setTrim(!state.kind.tile);
     drawCorners();
     rework(true);
   });
