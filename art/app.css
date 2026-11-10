@@ -1,0 +1,52 @@
+:root{--ink:#2A1E14;--paper:#FFF6E0;--line:#E9DCC0;--shade:#F3E6C6;--sky:#BFD9E8;--tomato:#E4572E;--sign:#1F5FAE;--muted:#6B5844;--taxi:#FFD23F;--green:#4a9a55}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sky);color:var(--ink);font:400 17px/1.5 Nunito,system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:16px 16px 48px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:4px 4px 12px}
+.brand{font:400 15px/1 "Lilita One",Nunito,sans-serif;letter-spacing:.12em;color:var(--sign);margin:0}
+.hi{margin:0;font-weight:900}
+.card{background:var(--paper);border:3px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:20px 18px 24px}
+h1,h2,h3{font-family:"Lilita One",Nunito,sans-serif;font-weight:400;line-height:1.2;margin:1.2em 0 .4em}
+h1{font-size:30px;margin-top:.2em}
+h2{font-size:22px;padding-top:.6em;border-top:2px solid var(--line)}
+h3{font-size:18px}
+p,ul{margin:.5em 0}
+ul{padding-left:1.25em}
+.hint{font-size:15px;color:var(--muted)}
+.note{background:var(--shade);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;margin:12px 0}
+.error{background:#FBE1D8;border-color:var(--tomato)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:16px}
+.kind{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;font:inherit;color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:14px;padding:14px;min-height:110px;cursor:pointer;box-shadow:0 4px 0 var(--ink)}
+.kind:active{transform:translateY(2px);box-shadow:0 2px 0 var(--ink)}
+.kind strong{font:400 19px/1.2 "Lilita One",Nunito,sans-serif}
+.kind span{font-size:14px;color:var(--muted)}
+.kind em{font-style:normal;font-size:12px;font-weight:900;background:var(--green);color:#fff;border-radius:999px;padding:2px 8px;margin-top:auto}
+button{font:inherit;cursor:pointer}
+.link{background:none;border:0;color:var(--sign);font-weight:700;padding:8px 0;min-height:44px}
+.big,.go,.second{display:flex;align-items:center;justify-content:center;width:100%;min-height:56px;margin-top:18px;font:400 21px/1 "Lilita One",Nunito,sans-serif;border:3px solid var(--ink);border-radius:14px;box-shadow:0 5px 0 var(--ink);cursor:pointer}
+.big,.go{color:#fff;background:var(--tomato)}
+.second{color:var(--ink);background:#fff}
+.big:active,.go:active,.second:active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink)}
+.go:disabled{opacity:.6}
+#photo-input{position:absolute;left:-10000px;width:1px;height:1px}
+.small{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:8px 12px;min-height:44px;font-weight:700;margin:6px 6px 0 0}
+.row{display:flex;gap:10px}
+.wrap{flex-wrap:wrap}
+.frames{display:flex;flex-wrap:wrap;gap:18px;margin:12px 0}
+figure{margin:0}
+figcaption{font-size:14px;font-weight:700;color:var(--muted);margin-top:6px;max-width:390px}
+canvas.phone{display:block;width:min(390px,100%);height:auto;border:3px solid var(--ink);border-radius:22px;background:#000}
+canvas.wide{display:block;width:min(780px,100%);height:auto;border:3px solid var(--ink);border-radius:14px}
+.piece canvas{display:block;max-width:min(260px,60%);height:auto;border:2px solid var(--ink);border-radius:8px}
+.paper{display:block;width:100%;max-width:600px;height:auto;touch-action:none;border:2px solid var(--ink);border-radius:8px}
+details{margin-top:16px;border-top:2px solid var(--line);padding-top:8px}
+summary{font:400 20px/1.4 "Lilita One",Nunito,sans-serif;cursor:pointer;min-height:44px;padding-top:8px}
+label{display:block;font-weight:900;margin:14px 0 6px}
+label.opt{font-weight:700;display:flex;gap:10px;align-items:flex-start;margin:10px 0}
+label.opt input{width:22px;height:22px;flex:none;margin-top:2px}
+input[type=range]{width:100%;max-width:600px;min-height:36px}
+input[type=text],textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:10px;padding:10px 12px;min-height:48px}
+input:focus,textarea:focus,button:focus-visible{outline:3px solid var(--sign);outline-offset:1px}
+.working{font-weight:900;color:var(--sign)}
+@media (min-width:860px){.card{padding:26px 28px 30px}}

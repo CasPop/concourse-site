@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self' https://alvtjfccmnejrzdrltfy.supabase.co/functions/v1/pages/art/; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Concourse art desk</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;700;900&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<main>
+<header><p class="brand">CONCOURSE &middot; ART DESK</p><p id="hi" class="hi"></p></header>
+<p id="who" class="note" hidden></p>
+
+<section id="loading"><div class="card"><p>Opening the art desk...</p></div></section>
+
+<section id="kinds" hidden>
+<div class="card">
+<h1>What did you draw?</h1>
+<p>Draw it once on paper, take a photo, and see it in the game before you send it. Your name goes on it in the game and in the shop.</p>
+<div id="kind-grid" class="grid"></div>
+</div>
+</section>
+
+<section id="photo" hidden>
+<div class="card">
+<button type="button" class="link" id="back-kinds">&larr; Pick another kind</button>
+<h1 id="kind-name"></h1>
+<p id="kind-hint"></p>
+<p id="kind-where" class="hint"></p>
+<label class="big" for="photo-input">Take or choose a photo</label>
+<input id="photo-input" type="file" accept="image/*">
+<p id="photo-msg" class="note" hidden></p>
+<h2>For a clean photo</h2>
+<ul>
+<li>The whole sheet in the photo, on a darker table, nothing on top of it.</li>
+<li>Even daylight. No flash, and no shadow of your phone across the paper.</li>
+<li>Hold the phone flat above the sheet. A little tilt is fine: the desk straightens it.</li>
+</ul>
+</div>
+</section>
+
+<section id="preview" hidden>
+<div class="card">
+<button type="button" class="link" id="back-photo">&larr; Use another photo</button>
+<h1><span id="pv-kind"></span>, in the game</h1>
+<p class="hint">Shown the size a player sees it on a phone.</p>
+<p id="working" class="working" hidden>Working...</p>
+<div id="frames" class="frames"></div>
+<figure class="piece"><canvas id="piece"></canvas><figcaption id="piece-cap"></figcaption></figure>
+<button type="button" id="before" class="small" hidden>Show before the snap</button>
+
+<div class="row">
+<button type="button" id="keep" class="second">Keep editing</button>
+</div>
+
+<details id="edit">
+<summary>The paper, the fit, the light, the colours</summary>
+<h3>The paper</h3>
+<p class="hint">Drag the four dots onto the sheet's corners. The yellow one is the top left of your drawing. The blue dashes show what is kept when the blank paper is trimmed.</p>
+<canvas id="paper" class="paper"></canvas>
+<div class="row wrap">
+<button type="button" class="small" id="turn">Turn a quarter</button>
+<button type="button" class="small" id="refind">Find the paper again</button>
+<button type="button" class="small" id="whole-photo">Use the whole photo</button>
+</div>
+<h3>Fit</h3>
+<label class="opt"><input type="checkbox" id="trim" checked> Trim the blank paper round the drawing</label>
+<label class="opt"><input type="radio" name="fit" id="fit-fill" checked> Fill the piece (the sheet's edges may be cut)</label>
+<label class="opt"><input type="radio" name="fit" id="fit-whole"> The whole sheet (paper shows round it)</label>
+<h3>Light</h3>
+<label for="whites">Whites: more paper turns clean white</label>
+<input type="range" id="whites" min="0.55" max="1" step="0.01">
+<label for="lines">Lines: pale pencil turns darker</label>
+<input type="range" id="lines" min="0" max="0.5" step="0.01">
+<h3>Paper and colours</h3>
+<label class="opt"><input type="checkbox" id="lift"> Lift the drawing off the paper (the paper turns see-through)</label>
+<label class="opt"><input type="checkbox" id="snap"> Snap to the game's colours</label>
+</details>
+
+<h2>Send it</h2>
+<label for="name">Name of the piece</label>
+<input type="text" id="name" maxlength="40" autocomplete="off" placeholder="Harbour at dawn">
+<label for="note">A note for Stephen (optional)</label>
+<textarea id="note" maxlength="600" rows="3" placeholder="Where you see it going, colours you had in mind..."></textarea>
+<p id="send-msg" class="note" hidden></p>
+<button type="button" id="send" class="go">Finish and import</button>
+<p class="hint">Sends the cleaned piece and your photo to Stephen. Nothing goes in the game until he has looked at it with you.</p>
+</div>
+</section>
+
+<section id="sent" hidden>
+<div class="card">
+<h1>Sent: <span id="sent-name"></span></h1>
+<p>Stephen has it now. He sets it up in the game, picks its price, and sends you a picture of it on the gate, usually within a few days. Your name goes on it.</p>
+<canvas id="sent-preview" class="phone"></canvas>
+<button type="button" id="again" class="go">Send another</button>
+</div>
+</section>
+</main>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

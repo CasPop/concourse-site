@@ -1,0 +1,424 @@
+{
+ "_source": "tools/art_frames.py",
+ "frames": {
+  "poster_try": {
+   "image": "poster_try.jpg",
+   "caption": "In the Shop, trying it on: the picture as a player sees it before buying.",
+   "quads": [
+    {
+     "pts": [
+      [
+       185.7,
+       169.6
+      ],
+      [
+       360.3,
+       169.6
+      ],
+      [
+       355.5,
+       397.8
+      ],
+      [
+       190.2,
+       397.8
+      ]
+     ],
+     "keys": [
+      [
+       219,
+       219,
+       219
+      ]
+     ],
+     "tol": 255,
+     "mode": "multiply"
+    }
+   ]
+  },
+  "poster_gate": {
+   "image": "poster_gate.jpg",
+   "caption": "On the gate's everyday view. The side walls sit at the screen's edges, so the posters are small there.",
+   "quads": [
+    {
+     "pts": [
+      [
+       -8.8,
+       293.8
+      ],
+      [
+       16.1,
+       277.2
+      ],
+      [
+       34.6,
+       335.4
+      ],
+      [
+       13.5,
+       356.3
+      ]
+     ],
+     "keys": [
+      [
+       219,
+       219,
+       219
+      ]
+     ],
+     "tol": 255,
+     "mode": "multiply"
+    },
+    {
+     "pts": [
+      [
+       502.8,
+       272.3
+      ],
+      [
+       528.1,
+       287.9
+      ],
+      [
+       508.1,
+       348.9
+      ],
+      [
+       486.3,
+       329.2
+      ]
+     ],
+     "keys": [
+      [
+       219,
+       219,
+       219
+      ]
+     ],
+     "tol": 255,
+     "mode": "multiply"
+    }
+   ]
+  },
+  "mat": {
+   "image": "props_lounge.jpg",
+   "caption": "The rug under the lounge seats, repeating. The seats stand on it.",
+   "quads": [
+    {
+     "pts": [
+      [
+       35,
+       388
+      ],
+      [
+       234,
+       388
+      ],
+      [
+       226,
+       503
+      ],
+      [
+       -3,
+       507
+      ]
+     ],
+     "tol": 26,
+     "mode": "multiply",
+     "repeat": [
+      4,
+      2
+     ],
+     "keys": [
+      [
+       137,
+       48,
+       38
+      ],
+      [
+       131,
+       52,
+       34
+      ],
+      [
+       135,
+       49,
+       37
+      ],
+      [
+       138,
+       47,
+       39
+      ]
+     ]
+    }
+   ]
+  },
+  "fabric": {
+   "image": "props_lounge.jpg",
+   "caption": "The lounge seats in your fabric, a rough look: the real seats wrap it round their shape.",
+   "quads": [
+    {
+     "pts": [
+      [
+       0,
+       378
+      ],
+      [
+       198,
+       378
+      ],
+      [
+       184,
+       497
+      ],
+      [
+       0,
+       497
+      ]
+     ],
+     "tol": 24,
+     "mode": "multiply",
+     "repeat": [
+      10,
+      6
+     ],
+     "keys": [
+      [
+       19,
+       99,
+       96
+      ],
+      [
+       17,
+       90,
+       87
+      ],
+      [
+       19,
+       98,
+       95
+      ],
+      [
+       21,
+       106,
+       103
+      ]
+     ]
+    }
+   ]
+  },
+  "tablet": {
+   "image": "desk_tablet_early.jpg",
+   "caption": "The podium tablet at the Desk. Your picture sits behind the boarding screen.",
+   "quads": [
+    {
+     "pts": [
+      [
+       38,
+       293
+      ],
+      [
+       208,
+       281
+      ],
+      [
+       238,
+       519
+      ],
+      [
+       66,
+       537
+      ]
+     ],
+     "tol": 14,
+     "mode": "multiply",
+     "keys": [
+      [
+       24,
+       24,
+       28
+      ]
+     ]
+    }
+   ]
+  },
+  "pass": {
+   "image": "desk_tablet_early.jpg",
+   "caption": "The boarding pass on the scanner at the Desk. The flight, the seat and the group print over it.",
+   "quads": [
+    {
+     "pts": [
+      [
+       122,
+       576
+      ],
+      [
+       299,
+       632
+      ],
+      [
+       260,
+       734
+      ],
+      [
+       70,
+       660
+      ]
+     ],
+     "tol": 26,
+     "mode": "multiply",
+     "keys": [
+      [
+       255,
+       246,
+       224
+      ],
+      [
+       255,
+       210,
+       63
+      ]
+     ]
+    }
+   ]
+  },
+  "postcard": {
+   "image": "postcard_desk.jpg",
+   "caption": "A postcard on the gate's stack, bottom right.",
+   "quads": [
+    {
+     "pts": [
+      [
+       428,
+       793
+      ],
+      [
+       498,
+       788
+      ],
+      [
+       502,
+       827
+      ],
+      [
+       430,
+       833
+      ]
+     ]
+    }
+   ]
+  },
+  "fin": {
+   "image": "shop_short.jpg",
+   "caption": "The tail fin, seen from the apron in the Shop (on a dark livery).",
+   "quads": [
+    {
+     "pts": [
+      [
+       378,
+       243
+      ],
+      [
+       440,
+       247
+      ],
+      [
+       438,
+       298
+      ],
+      [
+       376,
+       292
+      ]
+     ],
+     "tol": 20,
+     "mode": "multiply",
+     "keys": [
+      [
+       41,
+       47,
+       62
+      ],
+      [
+       48,
+       55,
+       72
+      ],
+      [
+       49,
+       55,
+       72
+      ]
+     ]
+    }
+   ]
+  },
+  "tabs": {
+   "image": "gate_idle.jpg",
+   "caption": "As a tab icon, in the Shop tab's place.",
+   "quads": [
+    {
+     "pts": [
+      [
+       466,
+       889
+      ],
+      [
+       506,
+       889
+      ],
+      [
+       506,
+       929
+      ],
+      [
+       466,
+       929
+      ]
+     ]
+    }
+   ],
+   "clear": [
+    {
+     "x": 462,
+     "y": 887,
+     "w": 50,
+     "h": 46,
+     "color": "#1f5fae"
+    }
+   ]
+  },
+  "object": {
+   "image": "props_lounge.jpg",
+   "caption": "The gate it goes in.",
+   "quads": []
+  },
+  "splash": {
+   "image": "splash.jpg",
+   "caption": "The launch screen: your painting fills the phone; the game's title is set over its top.",
+   "quads": [
+    {
+     "pts": [
+      [
+       0,
+       0
+      ],
+      [
+       540,
+       0
+      ],
+      [
+       540,
+       960
+      ],
+      [
+       0,
+       960
+      ]
+     ]
+    }
+   ]
+  }
+ }
+}
