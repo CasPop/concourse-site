@@ -19,66 +19,245 @@
 
 <section id="kinds" hidden>
 <div class="card">
-<h1>What did you draw?</h1>
-<p>Draw it once on paper, take a photo, and see it in the game before you send it. Your name goes on it in the game and in the shop.</p>
+<h1>What are you making?</h1>
+<ol class="steps">
+<li><b>1</b> Make it.</li>
+<li><b>2</b> Take a photo or choose the file.</li>
+<li><b>3</b> See it in the game, then send it.</li>
+</ol>
+<details id="how" class="fold">
+<summary>How this works</summary>
+<ul>
+<li>You only need a phone. Nothing to install, no account.</li>
+<li>Your link is yours. Please do not pass it on: it is how the desk knows the piece is from you.</li>
+<li>Send your own work only: something you drew, painted or made yourself.</li>
+<li>You can send as many as you like.</li>
+<li>Nothing goes in the game until Stephen has looked at it with you.</li>
+<li>Your name goes on it, in the game and in the Shop.</li>
+<li>Stephen sets it up in the game, picks its price, and sends you a picture of it on the gate.</li>
+</ul>
+</details>
+<p>Tap the thing you are making.</p>
 <div id="kind-grid" class="grid"></div>
 </div>
 </section>
 
-<section id="photo" hidden>
+<section id="mode" hidden>
 <div class="card">
-<button type="button" class="link" id="back-kinds">&larr; Pick another kind</button>
+<button type="button" class="link" id="back-kinds">&larr; Pick another thing</button>
 <h1 id="kind-name"></h1>
-<p id="kind-hint"></p>
+<div class="kind-card">
+<div id="kind-shape" class="shape" aria-hidden="true"></div>
+<div>
+<ul id="kind-tips" class="tips"></ul>
 <p id="kind-where" class="hint"></p>
-<label class="big" for="photo-input">Take or choose a photo</label>
-<input id="photo-input" type="file" accept="image/*">
+</div>
+</div>
+<h2>How did you make it?</h2>
+<div class="modes">
+<button type="button" class="mode" id="mode-paper">
+<svg viewBox="0 0 96 72" aria-hidden="true"><rect class="s-table" x="0" y="0" width="96" height="72" rx="8"/><rect class="s-paper" x="20" y="8" width="56" height="56" rx="2"/><path class="s-pencil" d="M30 50 C38 30 46 46 54 24 C58 16 64 22 66 30"/><circle class="s-pencil" cx="40" cy="26" r="6"/></svg>
+<span><strong>On paper</strong><span>Pencil, pen, marker or crayon, with bare paper round it.</span></span>
+</button>
+<button type="button" class="mode" id="mode-paint">
+<svg viewBox="0 0 96 72" aria-hidden="true"><rect class="s-table" x="0" y="0" width="96" height="72" rx="8"/><rect class="s-blue" x="20" y="8" width="56" height="56" rx="2"/><path class="s-gold" d="M20 40 C34 30 44 52 76 34 L76 64 L20 64 Z"/><circle class="s-coral" cx="58" cy="22" r="8"/><path class="s-teal" d="M20 52 C36 46 50 60 76 50 L76 64 L20 64 Z"/></svg>
+<span><strong>Painted or coloured</strong><span>Paint, pastel, collage, coloured paper or a canvas: colour all over.</span></span>
+</button>
+<button type="button" class="mode" id="mode-screen">
+<svg viewBox="0 0 96 72" aria-hidden="true"><rect class="s-ink" x="14" y="6" width="68" height="60" rx="8"/><rect class="s-sky" x="20" y="12" width="56" height="48" rx="2"/><circle class="s-gold" cx="60" cy="26" r="7"/><path class="s-teal" d="M20 50 C34 38 46 52 76 40 L76 60 L20 60 Z"/><path class="s-pen" d="M86 20 L70 52"/></svg>
+<span><strong>On a screen</strong><span>A tablet, a phone or a computer: you have the picture file.</span></span>
+</button>
+</div>
+<p class="hint">Not sure? If you can see bare paper round your drawing, pick On paper. If colour runs to the edges, pick Painted.</p>
+</div>
+</section>
+
+<section id="picture" hidden>
+<div class="card">
+<button type="button" class="link" id="back-mode">&larr; Pick another way</button>
+<h1 id="pic-title"></h1>
+<p id="pic-now"></p>
+
+<div id="photo-in">
+<div class="row wrap two">
+<button type="button" class="big" id="take-label">Take a photo</button>
+<button type="button" class="big alt" id="choose-label">Choose from my photos</button>
+</div>
+<input id="take-input" class="file" type="file" accept="image/*" capture="environment" tabindex="-1" aria-label="Take a photo">
+<input id="choose-input" class="file" type="file" accept="image/*" tabindex="-1" aria-label="Choose from my photos">
 <p id="photo-msg" class="note" hidden></p>
-<h2>For a clean photo</h2>
+<h2>For a good photo</h2>
+<div class="guide">
+<figure>
+<div class="pair">
+<svg viewBox="0 0 120 90" role="img" aria-label="Right: light from a window at the side"><rect class="s-table" width="120" height="90" rx="8"/><rect class="s-window" x="4" y="10" width="18" height="40" rx="2"/><path class="s-ray" d="M24 20 L48 34 M24 32 L48 44 M24 44 L48 54"/><rect class="s-paper" x="50" y="22" width="52" height="52" rx="2"/><circle class="s-yes" cx="104" cy="16" r="11"/><path class="s-mark" d="M98 16 L102 20 L110 11"/></svg>
+<svg viewBox="0 0 120 90" role="img" aria-label="Wrong: a ceiling lamp or the flash"><rect class="s-table" width="120" height="90" rx="8"/><path class="s-lamp" d="M44 4 L76 4 L68 18 L52 18 Z"/><rect class="s-paper" x="34" y="30" width="52" height="52" rx="2"/><ellipse class="s-glare" cx="60" cy="48" rx="12" ry="8"/><circle class="s-no" cx="104" cy="16" r="11"/><path class="s-mark" d="M99 11 L109 21 M109 11 L99 21"/></svg>
+</div>
+<figcaption><b>Light.</b> By a window in the daytime, the light coming from the side. Not under a ceiling lamp, never the flash.</figcaption>
+</figure>
+<figure>
+<div class="pair">
+<svg viewBox="0 0 120 90" role="img" aria-label="Right: no shadow on the piece"><rect class="s-table" width="120" height="90" rx="8"/><rect class="s-paper" x="34" y="18" width="52" height="60" rx="2"/><circle class="s-yes" cx="104" cy="16" r="11"/><path class="s-mark" d="M98 16 L102 20 L110 11"/></svg>
+<svg viewBox="0 0 120 90" role="img" aria-label="Wrong: your shadow over the piece"><rect class="s-table" width="120" height="90" rx="8"/><rect class="s-paper" x="34" y="18" width="52" height="60" rx="2"/><path class="s-shadow" d="M34 50 C50 40 56 30 70 34 C86 38 86 60 86 78 L34 78 Z"/><circle class="s-no" cx="104" cy="16" r="11"/><path class="s-mark" d="M99 11 L109 21 M109 11 L99 21"/></svg>
+</div>
+<figcaption><b>Shadow.</b> Stand so neither you nor the phone throws a shadow on it.</figcaption>
+</figure>
+<figure>
+<div class="pair">
+<svg viewBox="0 0 120 90" role="img" aria-label="Right: straight on, a little table all round"><rect class="s-table" width="120" height="90" rx="8"/><rect class="s-paper" x="22" y="12" width="66" height="70" rx="2"/><circle class="s-yes" cx="104" cy="16" r="11"/><path class="s-mark" d="M98 16 L102 20 L110 11"/></svg>
+<svg viewBox="0 0 120 90" role="img" aria-label="Wrong: taken from the side"><rect class="s-table" width="120" height="90" rx="8"/><path class="s-paper" d="M42 30 L76 30 L96 80 L18 80 Z"/><circle class="s-no" cx="104" cy="16" r="11"/><path class="s-mark" d="M99 11 L109 21 M109 11 L99 21"/></svg>
+</div>
+<figcaption><b>Angle.</b> Hold the phone flat above it, straight on. The piece fills most of the picture, with a little table showing all the way round.</figcaption>
+</figure>
+<figure>
+<div class="pair">
+<svg viewBox="0 0 120 90" role="img" aria-label="Right: a plain surface that is not the piece's colour"><rect class="s-table" width="120" height="90" rx="8"/><rect class="s-paper" x="30" y="16" width="56" height="64" rx="2"/><circle class="s-yes" cx="104" cy="16" r="11"/><path class="s-mark" d="M98 16 L102 20 L110 11"/></svg>
+<svg viewBox="0 0 120 90" role="img" aria-label="Wrong: white paper on a white table"><rect class="s-white" width="120" height="90" rx="8"/><rect class="s-paper-faint" x="30" y="16" width="56" height="64" rx="2"/><circle class="s-no" cx="104" cy="16" r="11"/><path class="s-mark" d="M99 11 L109 21 M109 11 L99 21"/></svg>
+</div>
+<figcaption><b>Table.</b> A plain surface. <span id="table-line">Darker than the paper for a drawing.</span></figcaption>
+</figure>
+</div>
+<h3>A few more</h3>
 <ul>
-<li>The whole sheet in the photo, on a darker table, nothing on top of it.</li>
-<li>Even daylight. No flash, and no shadow of your phone across the paper.</li>
-<li>Hold the phone flat above the sheet. A little tilt is fine: the desk straightens it.</li>
+<li>Tap the piece on your screen to focus, then hold still.</li>
+<li>Use the normal camera at 1x: no zoom, no filter, no portrait mode.</li>
+<li>Curled paper? Flatten it under a book first.</li>
+<li>Dark pen or marker reads best. With pencil, press firmly.</li>
 </ul>
+<ul id="paint-more" hidden>
+<li>Wet or glossy paint shines. Turn the piece, or move, until the bright patch is gone.</li>
+<li>Take it out from behind glass.</li>
+<li>A big canvas: lean it against a wall, stand back, and hold the phone level with its middle.</li>
+</ul>
+</div>
+
+<div id="screen-in" hidden>
+<p>Choose the picture file from your phone, tablet or computer. PNG, JPEG, WebP, GIF and most picture files work.</p>
+<button type="button" class="big" id="file-label">Choose the picture</button>
+<input id="file-input" class="file" type="file" tabindex="-1" aria-label="Choose the picture">
+<p class="hint">A screenshot works too. Open your picture so it fills the screen, take a screenshot, and choose the screenshot here. You can crop it on the next step.</p>
+<div id="file-help" class="note" hidden></div>
+</div>
+</div>
+</section>
+
+<section id="check" hidden>
+<div class="card">
+<h1>A quick look at your photo</h1>
+<p>The desk looked at your photo before going on. It can still be used as it is.</p>
+<div id="check-list"></div>
+<div class="row wrap two">
+<button type="button" id="check-again" class="big">Take it again</button>
+<button type="button" id="check-anyway" class="second">Use it anyway</button>
+</div>
 </div>
 </section>
 
 <section id="preview" hidden>
 <div class="card">
-<button type="button" class="link" id="back-photo">&larr; Use another photo</button>
+<button type="button" class="link" id="back-picture">&larr; Use another picture</button>
 <h1><span id="pv-kind"></span>, in the game</h1>
-<p class="hint">Shown the size a player sees it on a phone.</p>
+<p class="hint">Shown the size a player sees it on a phone. Next: change anything below, then send it.</p>
+<div id="mode-switch" class="switch" role="radiogroup" aria-label="How you made it">
+<label class="opt"><input type="radio" name="mode" id="sw-paper"> On paper: the paper turns white, the lines get darker</label>
+<label class="opt"><input type="radio" name="mode" id="sw-paint"> Painted or coloured: your colours as you shot them</label>
+</div>
+<div id="guard" class="note warn" hidden>
+<p>This looks painted. The paper clean-up can wash colours out.</p>
+<div class="row wrap"><button type="button" class="small" id="guard-keep">Keep my colours</button><button type="button" class="small" id="guard-drawing">It is a drawing</button></div>
+</div>
+<p id="good" class="hint good" hidden>This photo looks good.</p>
 <p id="working" class="working" hidden>Working...</p>
 <div id="frames" class="frames"></div>
 <figure class="piece"><canvas id="piece"></canvas><figcaption id="piece-cap"></figcaption></figure>
-<button type="button" id="before" class="small" hidden>Show before the snap</button>
-
-<div class="row">
-<button type="button" id="keep" class="second">Keep editing</button>
+<div class="row wrap">
+<button type="button" id="show-photo" class="small" aria-pressed="false" hidden>Show my photo</button>
+<button type="button" id="before" class="small" hidden>Show before the colours changed</button>
 </div>
 
-<details id="edit">
-<summary>The paper, the fit, the light, the colours</summary>
-<h3>The paper</h3>
-<p class="hint">Drag the four dots to frame exactly what is kept; the yellow one is the top left of your drawing. Left alone, the tool trims the blank paper for you and the blue dashes show what it keeps. Dragging a dot turns that trim off.</p>
-<canvas id="paper" class="paper"></canvas>
+<details id="edit" class="fold">
+<summary>Change the picture</summary>
+
+<div id="ed-photo">
+<h3>Where your piece is</h3>
+<p class="hint" id="dots-line">Drag the four dots to the corners of your piece. The yellow dot is its top left.</p>
+<canvas id="paper" class="paper" aria-label="Your photo with four dots at the corners of the piece"></canvas>
 <div class="row wrap">
 <button type="button" class="small" id="turn">Turn a quarter</button>
-<button type="button" class="small" id="refind">Find the paper again</button>
+<button type="button" class="small" id="refind">Find the piece again</button>
 <button type="button" class="small" id="whole-photo">Use the whole photo</button>
 </div>
 <h3>Fit</h3>
-<label class="opt"><input type="checkbox" id="trim" checked> Trim the blank paper round the drawing</label>
-<label class="opt"><input type="radio" name="fit" id="fit-whole" checked> The whole drawing (paper may show round it)</label>
-<label class="opt"><input type="radio" name="fit" id="fit-fill"> Fill the piece (the drawing's edges may be cut)</label>
+<label class="opt" id="trim-row"><input type="checkbox" id="trim" checked> Cut away the blank paper round the drawing</label>
+<label class="opt"><input type="radio" name="fit" id="fit-whole" checked> Show the whole piece (a margin may show round it)</label>
+<label class="opt"><input type="radio" name="fit" id="fit-fill"> Fill the frame (the edges may be cut)</label>
+</div>
+
+<div id="ed-paper">
 <h3>Light</h3>
-<label for="whites">Whites: more paper turns clean white</label>
+<label for="whites">Make the paper whiter <output id="whites-v" for="whites"></output></label>
 <input type="range" id="whites" min="0.55" max="1" step="0.01">
-<label for="lines">Lines: pale pencil turns darker</label>
+<label for="lines">Make the lines darker <output id="lines-v" for="lines"></output></label>
 <input type="range" id="lines" min="0" max="0.5" step="0.01">
-<h3>Paper and colours</h3>
-<label class="opt"><input type="checkbox" id="lift"> Lift the drawing off the paper (the paper turns see-through)</label>
-<label class="opt"><input type="checkbox" id="snap"> Snap to the game's colours</label>
+<label class="opt"><input type="checkbox" id="lift"> Make the paper see-through, so only the drawing stays</label>
+</div>
+
+<div id="ed-paint" hidden>
+<h3>Light and colour</h3>
+<p class="hint">In the middle, each one is your photo as you shot it.</p>
+<label for="bright">Brightness <output id="bright-v" for="bright"></output></label>
+<input type="range" id="bright" min="-1" max="1" step="0.05" value="0">
+<label for="colour">Colour, less to more <output id="colour-v" for="colour"></output></label>
+<input type="range" id="colour" min="-1" max="1" step="0.05" value="0">
+<label for="warm">Warmth, cooler to warmer <output id="warm-v" for="warm"></output></label>
+<input type="range" id="warm" min="-1" max="1" step="0.05" value="0">
+<button type="button" class="small" id="reset-grade">Back to my photo</button>
+</div>
+
+<div id="ed-screen" hidden>
+<h3>Frame it</h3>
+<p class="hint">Drag the picture to move it. Use the slider, or pinch, to zoom.</p>
+<canvas id="frame-ed" class="frame-ed" aria-label="Your picture in the frame; drag to move it"></canvas>
+<label for="zoom">Zoom <output id="zoom-v" for="zoom"></output></label>
+<input type="range" id="zoom" min="0" max="100" step="1" value="0">
+<div class="row wrap">
+<button type="button" class="small" id="show-whole">Show the whole picture</button>
+<button type="button" class="small" id="fill-frame">Fill the frame</button>
+</div>
+<div id="ground-row" hidden>
+<h3>Background colour</h3>
+<p class="hint" id="ground-line"></p>
+<div id="swatches" class="swatches" role="radiogroup" aria-label="Background colour"></div>
+</div>
+<p class="hint" id="cutout-line" hidden></p>
+<div id="smooth-row" hidden>
+<h3>Making it bigger</h3>
+<p class="hint">Your picture is small, so it is made bigger to fit.</p>
+<label class="opt"><input type="radio" name="smooth" id="sm-smooth"> Smooth: soft edges</label>
+<label class="opt"><input type="radio" name="smooth" id="sm-blocky"> Blocky: crisp square pixels, for pixel art</label>
+</div>
+</div>
+
+<div id="ed-snap">
+<h3>Colours</h3>
+<label class="opt"><input type="checkbox" id="snap"> Use the game's own colours</label>
+<p class="hint">Turns your colours into the game's own set. Good for flat poster shapes, wrong for a painting's soft blends.</p>
+</div>
+</details>
+
+<details id="wrong" class="fold">
+<summary>It looks wrong?</summary>
+<ul class="wrong">
+<li><b>The colours look pale or washed out.</b> Switch to Painted or coloured at the top.</li>
+<li><b>It is dark or grey.</b> Move Brightness (or, on paper, Make the paper whiter), or take it again by a window.</li>
+<li><b>The edges are cut off.</b> Under Fit, pick Show the whole piece.</li>
+<li><b>It is sideways.</b> Tap Turn a quarter.</li>
+<li><b>The wrong part is picked.</b> Drag the four dots onto the corners of your piece.</li>
+<li><b>The table shows at the edge.</b> Drag the dots in a little.</li>
+<li><b>There is a bright patch.</b> That is a shine. Take it again: turn the piece or step to the side until it goes.</li>
+<li><b>It is blurry.</b> Take it again: tap the piece on your screen to focus, and hold still.</li>
+<li><b>It will not send.</b> Check your signal first. If the page says the file is too big, tap Send again: it makes it smaller.</li>
+</ul>
 </details>
 
 <h2>Send it</h2>
@@ -87,21 +266,27 @@
 <label for="note">A note for Stephen (optional)</label>
 <textarea id="note" maxlength="600" rows="3" placeholder="Where you see it going, colours you had in mind..."></textarea>
 <p id="send-msg" class="note" hidden></p>
-<button type="button" id="send" class="go">Finish and import</button>
-<p class="hint">Sends the cleaned piece and your photo to Stephen. Nothing goes in the game until he has looked at it with you.</p>
+<button type="button" id="send" class="go">Send it to Stephen</button>
+<p class="hint">Sends the finished piece and your original picture to Stephen. Nothing goes in the game until he has looked at it with you.</p>
 </div>
 </section>
 
 <section id="sent" hidden>
 <div class="card">
 <h1>Sent: <span id="sent-name"></span></h1>
-<p>Stephen has it now. He sets it up in the game, picks its price, and sends you a picture of it on the gate, usually within a few days. Your name goes on it.</p>
+<p>Stephen has it now. Here is what happens next:</p>
+<ol>
+<li>He looks at it, usually within a few days.</li>
+<li>He sets it up in the game and picks its price.</li>
+<li>He sends you a picture of it on the gate. Your name goes on it.</li>
+</ol>
 <canvas id="sent-preview" class="phone"></canvas>
 <button type="button" id="again" class="go">Send another</button>
 </div>
 </section>
 </main>
 <script src="config.js"></script>
+<script src="art_pixels.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
