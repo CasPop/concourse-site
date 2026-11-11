@@ -955,7 +955,7 @@ function blob(c, type, q) {
   return new Promise((ok) => c.toBlob(ok, type, q));
 }
 
-// The photo Stephen keeps: the original file when the server takes it as it
+// The photo CasPop keeps: the original file when the server takes it as it
 // is (JPEG, PNG or WebP by its first bytes, inside the limit), else a copy
 // the page makes: PNG when the picture has see-through parts, JPEG when not.
 async function photoBlob() {
@@ -1062,14 +1062,14 @@ async function hello() {
     }
   })() || "";
   if (!t) {
-    say($("who"), "This page needs your invite link. Ask Stephen for it.", "error");
+    say($("who"), "This page needs your invite link. Ask CasPop for it.", "error");
     return false;
   }
   try {
     const r = await fetch(CFG.functionUrl + "/art/hello", { method: "POST", headers: { "content-type": "text/plain" }, body: JSON.stringify({ token: t }) });
     const body = await r.json().catch(() => ({}));
     if (!r.ok) {
-      say($("who"), body.message || "This invite link is not active. Ask Stephen for a new one.", "error");
+      say($("who"), body.message || "This invite link is not active. Ask CasPop for a new one.", "error");
       return false;
     }
     state.token = t;
